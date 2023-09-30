@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBtc, FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import { useAuth } from "../hooks/useAuth";
 const Header: FC = () => {
-	const isAuth = true;
-	// const isAuth = false;
+	const isAuth = useAuth();
 	return (
 		<header className=" px-4 py-3 bg-slate-800 flex items-center  shadow-sm backdrop-blur-sm">
 			<Link to={"/"}>
