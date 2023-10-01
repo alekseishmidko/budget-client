@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Auth: FC = () => {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
-	const [isLogin, setIsLogin] = React.useState<boolean>(false);
+	const [isLogin, setIsLogin] = React.useState<boolean>(true);
 	const [email, setEmail] = React.useState<string>("");
 	const [password, setPassword] = React.useState<string>("");
 	const registrationHandler = async (

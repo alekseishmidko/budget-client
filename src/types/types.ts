@@ -18,3 +18,10 @@ export interface IResponceUserData {
 	token: string;
 	user: IresponseUser | undefined;
 }
+export interface ICategory {
+	id: number;
+	title: string;
+	updatedAt: string;
+	createdAt: string;
+	transactions: [];
+}

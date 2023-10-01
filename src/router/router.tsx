@@ -1,10 +1,14 @@
-import { createBrowserRouter } from "react-router-dom"
-import Layout from "../pages/Layout"
-import ErrorPage from "../pages/ErrorPage"
-import Home from "../pages/Home"
-import Transactions from "../pages/Transactions"
-import Categories from "../pages/Categories"
-import Auth from "../pages/Auth"
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "../pages/Layout";
+import ErrorPage from "../pages/ErrorPage";
+import Home from "../pages/Home";
+import Transactions from "../pages/Transactions";
+import Categories, {
+	categoriesAction,
+	categoryLoader,
+} from "../pages/Categories";
+import Auth from "../pages/Auth";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export const router = createBrowserRouter([
 	{
@@ -18,11 +22,21 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "transactions",
-				element: <Transactions />,
+				element: (
+					<ProtectedRoute>
+						<Transactions />
+					</ProtectedRoute>
+				),
 			},
 			{
 				path: "categories",
-				element: <Categories />,
+				action: categoriesAction,
+				loader: categoryLoader,
+				element: (
+					<ProtectedRoute>
+						<Categories />
+					</ProtectedRoute>
+				),
 			},
 			{
 				path: "auth",
@@ -30,4 +44,4 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
-])
+]);
