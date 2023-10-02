@@ -6,7 +6,12 @@ interface ICategoryModal {
 	id?: string;
 	setVisibleModal: (visible: boolean) => void;
 }
-const CategoryModal: FC<ICategoryModal> = ({ type, id, setVisibleModal }) => {
+const CategoryModal: FC<ICategoryModal> = ({
+	type,
+	id,
+	setVisibleModal,
+	setIsEdit,
+}) => {
 	return (
 		<div className="fixed top-0 left-0 bottom-0 right-0 w-full h-full bg-black/50 flex justify-center items-center">
 			<Form
